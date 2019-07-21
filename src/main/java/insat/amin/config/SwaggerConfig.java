@@ -1,10 +1,14 @@
 package insat.amin.config;
 
+import java.util.ArrayList;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -21,7 +25,24 @@ public class SwaggerConfig {
 				.apis(RequestHandlerSelectors.any())
 				.paths(PathSelectors.any())
 				.build()
-				.pathMapping("/");
+				.pathMapping("/")
+                .apiInfo(metaData());
 				
 	}
+	
+	private ApiInfo metaData(){
+
+        Contact contact = new Contact("Amin Ben Mbarek", "https://www.linkedin.com/in/mohamed-amin-ben-mbarek-616016131/",
+                "medaminbenmbarek@gmail.com");
+
+        return new ApiInfo(
+                "Amin Docs",
+                "Spring 5 Rest Backend",
+                "1.0",
+                "Terms of Service: bla bla",
+                contact,
+                "Apache License Version 2.0",
+                "https://www.apache.org/licenses/LICENSE-2.0",
+                new ArrayList<>());
+    }
 }
