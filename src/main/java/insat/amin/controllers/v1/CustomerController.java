@@ -31,7 +31,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @ApiOperation(value = "This will get a list of customers.", notes = "These are some notes about the API.")
+    @ApiOperation(value = "This will get a list of customers.", notes = "These are some notes about the API.") 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public CustomerListDTO getListOfCustomers(){
